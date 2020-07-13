@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const express = require('express');
 const router = express.Router();
 const jwtKey = 'E871C21F-F765-40F3-A0CE-ECF366B7B375|BD71A8D1-40F0-49CC-AA21-B6B956DF48B7';
 const jwtExpirySeconds = 300;
