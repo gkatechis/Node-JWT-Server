@@ -20,3 +20,7 @@ app.get('/', (req, res) => res.send('Hello World!'))
 http.createServer(app).listen(PORT), () => {
     console.log(`Express server listening on port ${PORT}`);
 };
+
+() => {
+    console.log(`Is this thing on? ${PORT}`);
+}
