@@ -69,7 +69,7 @@ router.get('/signin', (req, res) => {
         res.cookie('token', token, {
             maxAge: jwtExpirySeconds * 1000
         })
-        res.render('regular');
+        res.send('regular');
     });
 
 server.listen(PORT, () => {
