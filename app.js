@@ -19,7 +19,28 @@ const server = http.createServer((req,res) => {
 // app.use(bodyParser.urlencoded({extended: true}));
 // app.use(bodyParser.raw());
 app.use(cookieParser());
-app.use('/handlers', handlers)
+// app.use('/handlers', handlers)
+
+const jwtKey = 'E871C21F-F765-40F3-A0CE-ECF366B7B375|BD71A8D1-40F0-49CC-AA21-B6B956DF48B7';
+const jwtExpirySeconds = 300;
+
+const users = {
+    user1: 'password1',
+    user2: 'password2',
+};
+// No mount path, always returns
+router.use((req, res, next) => {
+    console.log('Time:', Date.now());
+    next();
+});
+
+router.use('/signin', (req, res, next) => {
+        console.log('Request URL:', req / originalURL);
+        next()
+    },
+    (req, res, next) => {
+        console.log('Request Type:', req.method);
+    });
 
 // Sign-in handler
 router.get('/signin', (req, res) => {
