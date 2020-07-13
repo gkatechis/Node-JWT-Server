@@ -6,7 +6,7 @@ const http = require('http');
 const PORT = 80;
 
 
-const {signIn, welcome, refresh} = require('./handlers');
+const handlers = require('./handlers');
 
 const app = express();
 
@@ -19,11 +19,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw());
 app.use(cookieParser());
+app.use('/handlers', handlers)
 
-app.post('/signin', signIn);
-app.get('/welcome', welcome);
-app.post('/refresh', refresh);
-app.get('/', (req, res) => res.send('Hello World!'))
+// app.post('/signin', signIn);
+// app.get('/welcome', welcome);
+// app.post('/refresh', refresh);
+// app.get('/', (req, res) => res.send('Hello World!'))
 
 server.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`)
