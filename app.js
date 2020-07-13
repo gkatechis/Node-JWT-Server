@@ -12,7 +12,7 @@ const app = express();
 
 const server = http.createServer((req,res) => {
     res.statusCode = 200;
-    console.log(res.statusCode);
+    console.log(req.body);
     res.end();
 })
 app.use(bodyParser.json());
