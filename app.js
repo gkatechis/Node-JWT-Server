@@ -17,6 +17,5 @@ app.post('/signin', signIn);
 app.get('/welcome', welcome);
 app.post('/refresh', refresh);
 
-http.createServer(app).listen(app.get('port'), function () {
-    console.log(`App listening on port ${PORT}`);
-});
+app.listen(8000);
+console.log(`App listening on port ${PORT}`);
