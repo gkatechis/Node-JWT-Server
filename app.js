@@ -12,7 +12,6 @@ const app = express();
 
 const server = http.createServer((req,res) => {
     res.statusCode = 200;
-    res.end('Hellow World!\n');
 })
 app.use(bodyParser.json());
 app.use(cookieParser());
