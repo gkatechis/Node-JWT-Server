@@ -12,10 +12,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.set('port', process.env.PORT || 8000);
 app.post('/signin', signIn);
 app.get('/welcome', welcome);
 app.post('/refresh', refresh);
+app.get('/', (req, res) => {
+    res.redirect(301, '/sigin');
+});
 
-app.listen(8000);
+http.createServer(app).listen(app.get('port'), () => {
+    console.log(`Express server listening on port ${PORT}`);
+});
 console.log(`App listening on port ${PORT}`);
