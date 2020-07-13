@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const http = require('http');
 
-const PORT = 8000;
+const PORT = 80;
 
 
 const {signIn, welcome, refresh} = require('./handlers');
