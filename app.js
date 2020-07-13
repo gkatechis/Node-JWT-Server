@@ -15,11 +15,8 @@ app.use(cookieParser());
 app.post('/signin', signIn);
 app.get('/welcome', welcome);
 app.post('/refresh', refresh);
-app.get('/', (req, res) => {
-    res.redirect(301, '/sigin');
-});
+app.get('/', (req, res) => res.send('Hello World!'))
 
 http.createServer(app).listen(app.get('port'), () => {
     console.log(`Express server listening on port ${PORT}`);
 });
-console.log(`App listening on port ${PORT}`);
