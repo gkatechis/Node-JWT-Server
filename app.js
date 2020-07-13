@@ -12,6 +12,8 @@ const app = express();
 
 const server = http.createServer((req,res) => {
     res.statusCode = 200;
+    console.log(res.statusCode);
+    res.end();
 })
 app.use(bodyParser.json());
 app.use(cookieParser());
