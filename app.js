@@ -16,6 +16,9 @@ const server = http.createServer((req,res) => {
     res.end();
 })
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.raw());
+app.use(multer());
 app.use(cookieParser());
 
 app.post('/signin', signIn);
