@@ -89,6 +89,6 @@ res.end();
 
 module.exports = {
     signIn,
-    welcome,
+    // welcome,
     refresh,
 }
