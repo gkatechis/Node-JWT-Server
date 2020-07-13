@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const PORT = 8000;
+console.log(`App listening on port ${PORT}`)
 
 const {signIn, welcome, refresh} = require('./handlers');
 
