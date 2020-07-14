@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
     };
 
     var payload
+    console.log('Payload is', payload);
     try {
         payload = jwt.verify(token, jwtKey);
     } catch (e) {
