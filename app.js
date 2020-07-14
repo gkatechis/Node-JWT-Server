@@ -11,8 +11,6 @@ const cookieParser = require('cookie-parser');
 
 const PORT = 80;
 
-const {welcome, refresh} = require('./handlers').default;
-
 const signIn = require('./Routes/signIn')
 
 const app = express();
