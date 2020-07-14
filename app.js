@@ -21,8 +21,8 @@ app.use(bodyParser.raw());
 app.use(cookieParser());
 
 app.post('/signin', signIn);
-app.get('/welcome', welcome);
-app.post('/refresh', refresh);
+// app.get('/welcome', welcome);
+// app.post('/refresh', refresh);
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(PORT, () => {
