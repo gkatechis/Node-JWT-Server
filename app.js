@@ -3,7 +3,7 @@ Zendesk JWT test server
 Author: Greg Katechis
 */
 
-'use strict'
+// 'use strict'
 
 const express = require('express');
 const bodyParser = require('body-parser');
