@@ -16,13 +16,9 @@ const users = {
 router.post('/', (req, res) => {
     // Get creds from JSON
     const {username,password} = req.body;
-
-    if (req.method === 'POST') {
-
     if (!username || !password || users[username] !== password) {
         return res.status(401).end();
     };
-
     // Create new token from username in payload; expires in 300s
     const token = jwt.sign({username}, jwtKey, {
         algorithm: 'HS256',
@@ -35,9 +31,7 @@ router.post('/', (req, res) => {
         maxAge: jwtExpirySeconds * 1000
     });
     res.end();
- } else {
-     res.send('Unsupported method');
- }
+
 });
 
 module.exports = router;
