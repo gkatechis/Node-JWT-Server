@@ -1,11 +1,19 @@
+/*!
+Zendesk JWT test server
+Author: Greg Katechis
+*/
+
+'use strict'
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const http = require('http');
 
 const PORT = 80;
 
-const {signIn, welcome, refresh} = require('./handlers');
+const {welcome, refresh} = require('./handlers').default;
+
+const signIn = require('./Routes/signIn')
 
 const app = express();
 
