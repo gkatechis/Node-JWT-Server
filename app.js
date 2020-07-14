@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
-app.use('/signin', signIn);
+app.get('/signin', signIn);
 // app.get('/welcome', welcome);
 // app.post('/refresh', refresh);
 app.get('/', (req, res) => {
