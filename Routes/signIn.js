@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
     // Get creds from JSON
     const {username,password} = req.body;
 
-    if (req.method = POST) {
+    if (req.method === post) {
 
     if (!username || !password || users[username] !== password) {
         return res.status(401).end();
