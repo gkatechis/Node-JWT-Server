@@ -25,6 +25,12 @@ app.get('/welcome', welcome);
 app.post('/refresh', refresh);
 // app.get('/', (req, res) => res.send('Hello World!'))
 
+app.use('/', {
+    signIn,
+    welcome,
+    refresh
+})
+
 server.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`)
 });
