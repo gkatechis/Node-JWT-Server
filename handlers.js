@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-
 const jwtKey = 'E871C21F-F765-40F3-A0CE-ECF366B7B375|BD71A8D1-40F0-49CC-AA21-B6B956DF48B7';
 const jwtExpirySeconds = 300;
 
@@ -12,7 +11,6 @@ const users = {
 const signIn = (req,res) => {
     // Get creds from JSON
     const {username, password} = req.body;
-    console.log("Is there a ", req.body)
     if (!username || !password || users[username] !== password) {
         //401 if user/pass aren't present or if the password is wrong
         return res.status(401).end();

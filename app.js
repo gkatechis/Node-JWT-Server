@@ -5,21 +5,14 @@ const http = require('http');
 
 const PORT = 80;
 
-
 const {signIn, welcome, refresh} = require('./handlers');
 
 const app = express();
 
-// const server = http.createServer((req,res) => {
-//     res.statusCode = 200;
-//     console.log(req);
-//     res.end();
-// })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw());
 app.use(cookieParser());
-
 
 app.post('/signin', signIn);
 app.get('/welcome', welcome);
