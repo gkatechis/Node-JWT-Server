@@ -10,11 +10,11 @@ const {signIn, welcome, refresh} = require('./handlers');
 
 const app = express();
 
-const server = http.createServer((req,res) => {
-    res.statusCode = 200;
-    console.log(req);
-    res.end();
-})
+// const server = http.createServer((req,res) => {
+//     res.statusCode = 200;
+//     console.log(req);
+//     res.end();
+// })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw());
@@ -26,6 +26,6 @@ app.get('/welcome', welcome);
 app.post('/refresh', refresh);
 app.get('/', (req, res) => res.send('Hello World!'))
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`)
 });
