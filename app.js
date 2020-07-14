@@ -29,7 +29,9 @@ app.use(cookieParser());
 app.use('/signin', signIn);
 // app.get('/welcome', welcome);
 // app.post('/refresh', refresh);
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+});
 
 // // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
