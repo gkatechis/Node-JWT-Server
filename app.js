@@ -9,6 +9,7 @@ const createError = require('http-errors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
 const PORT = 80;
 
