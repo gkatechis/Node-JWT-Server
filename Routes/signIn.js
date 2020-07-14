@@ -9,12 +9,9 @@ const users = {
     user2: 'password2',
 };
 
-const signIn = (req, res) => {
+router.get('/signin', (req, res) => {
     // Get creds from JSON
-    const {
-        username,
-        password
-    } = req.body;
+    const {username,password} = req.body;
     if (!username || !password || users[username] !== password) {
         return res.status(401).end();
     };
@@ -31,6 +28,6 @@ const signIn = (req, res) => {
         maxAge: jwtExpirySeconds * 1000
     });
     res.end();
-};
+});
 
-module.exports = signIn;
+module.exports = router;
