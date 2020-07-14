@@ -6,7 +6,7 @@ const http = require('http');
 const PORT = 80;
 
 
-const {signIn, welcome, refresh} = require('./handlers');
+const signIn = require('./handlers');
 
 const app = express();
 
@@ -21,14 +21,14 @@ app.use(bodyParser.raw());
 app.use(cookieParser());
 
 app.post('/signin', signIn);
-app.get('/welcome', welcome);
-app.post('/refresh', refresh);
+// app.get('/welcome', welcome);
+// app.post('/refresh', refresh);
 // app.get('/', (req, res) => res.send('Hello World!'))
 
 app.use('/', {
-    signIn,
-    welcome,
-    refresh
+    signIn
+    // welcome,
+    // refresh
 })
 
 server.listen(PORT, () => {
