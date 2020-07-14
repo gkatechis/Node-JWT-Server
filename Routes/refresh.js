@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     // Get token from request's cookies
     const token = req.cookies.token
-    console.log(req.cookies.token);
+    console.log(req);
 
     // No cookie? 401 for you.
     if (!token) {
