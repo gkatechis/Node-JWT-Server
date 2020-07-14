@@ -29,7 +29,7 @@ const signIn = (req,res) => {
     res.cookie('token', token, {
         maxAge: jwtExpirySeconds * 1000
     })
-    res.end();
+    res.send();
 };
 
 // Welcome handler
