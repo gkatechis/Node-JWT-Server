@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+
 const jwtKey = 'E871C21F-F765-40F3-A0CE-ECF366B7B375|BD71A8D1-40F0-49CC-AA21-B6B956DF48B7';
 const jwtExpirySeconds = 300;
 
@@ -6,33 +7,17 @@ const users = {
     user1: 'password1',
     user2: 'password2',
 };
-// No mount path, always returns
-router.use(function (req, res, next) {
-    console.log('Time:', Date.now());
-    next();
-});
-
-const signIn =router.use('/signin', (req, res, next) => {
-    console.log('Request URL:', req/originalURL);
-    next()
-},
-(req, res, next) => {
-    console.log('Request Type:', req.method);
-});
 
 // Sign-in handler
-router.get('/signin', (req,res) => {
+const signIn = (req,res) => {
     // Get creds from JSON
     const {username, password} = req.body;
-    console.log(req.body);
+    console.log(req.body)
     if (!username || !password || users[username] !== password) {
         //401 if user/pass aren't present or if the password is wrong
         return res.status(401).end();
-    }
-    else next()
-},
-    (req, res, next) =>
-{
+    };
+
     // Create new token from usernam in payload; expires in 30s
     const token = jwt.sign({username}, jwtKey, {
         algorithm: 'HS256',
@@ -44,32 +29,33 @@ router.get('/signin', (req,res) => {
     res.cookie('token', token, {
         maxAge: jwtExpirySeconds * 1000
     })
-    res.render('regular');
-});
+    res.end();
+};
 
-// // Welcome handler
-// router.get('/welcome = (req,res) => {
-//     // Get token from request's cookies
-//     const token = req.cookies.token
+// Welcome handler
 
-//     // No cookie? 401 for you.
-//     if (!token) {
-//         return res.status(401).end();
-//     };
+const welcome = (req,res) => {
+    // Get token from request's cookies
+    const token = req.cookies.token
 
-// var payload
-// try {
-//     payload = jwt.verify(token, jwtKey);
-// } catch (e) {
-//     if (e instanceof jwt.JsonWebTokenError) {
-//         return res.status(401).end();
-//     }
-//     return res.status(400).end();
-// };
+    // No cookie? 401 for you.
+    if (!token) {
+        return res.status(401).end();
+    };
 
-// res.send(`Welcome ${payload.username}!`)
+var payload
+try {
+    payload = jwt.verify(token, jwtKey);
+} catch (e) {
+    if (e instanceof jwt.JsonWebTokenError) {
+        return res.status(401).end();
+    }
+    return res.status(400).end();
+};
 
-// };
+res.send(`Welcome ${payload.username}!`)
+
+};
 
 // Refresh handler since expiry is short
 
