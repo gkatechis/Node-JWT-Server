@@ -26,12 +26,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-// app.post('/signin', signIn);
-// // app.get('/welcome', welcome);
-// // app.post('/refresh', refresh);
-// app.get('/', (req, res) => res.send('Hello World!'))
+app.use('/signin', signIn);
+// app.get('/welcome', welcome);
+// app.post('/refresh', refresh);
+app.get('/', (req, res) => res.send('Hello World!'))
 
 // // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
