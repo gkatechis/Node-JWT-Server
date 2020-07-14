@@ -20,21 +20,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw());
 app.use(cookieParser());
 
-app.post('/signin', signIn);
-// app.get('/welcome', welcome);
-// app.post('/refresh', refresh);
-// app.get('/', (req, res) => res.send('Hello World!'))
-
-app.use('/', {
-    signIn
-    // welcome,
-    // refresh
-})
-
-server.listen(PORT, () => {
-    console.log(`Server running at port ${PORT}`)
-});
-
 const signIn = (req, res) => {
     // Get creds from JSON
     const {
@@ -62,3 +47,19 @@ const signIn = (req, res) => {
     })
     res.end();
 };
+
+app.post('/signin', signIn);
+// app.get('/welcome', welcome);
+// app.post('/refresh', refresh);
+// app.get('/', (req, res) => res.send('Hello World!'))
+
+app.use('/', {
+    signIn
+    // welcome,
+    // refresh
+})
+
+server.listen(PORT, () => {
+    console.log(`Server running at port ${PORT}`)
+});
+
