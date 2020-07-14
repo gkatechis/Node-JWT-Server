@@ -1,10 +1,9 @@
 // Welcome handler
 
-const router = require("./signIn");
-
 router.get('/', (req, res) => {
     // Get token from request's cookies
     const token = req.cookies.token
+    console.log(req.cookies.token);
 
     // No cookie? 401 for you.
     if (!token) {
