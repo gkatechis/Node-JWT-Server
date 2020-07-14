@@ -6,7 +6,7 @@ const http = require('http');
 const PORT = 80;
 
 
-const {signIn, welcome, refresh} = require('./handlers');
+const {signIn, welcome, refresh} = require('handlers.js');
 
 const app = express();
 
