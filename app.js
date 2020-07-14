@@ -24,13 +24,7 @@ app.use(cookieParser());
 app.post('/signin', signIn);
 app.get('/welcome', welcome);
 app.post('/refresh', refresh);
-// app.get('/', (req, res) => res.send('Hello World!'))
-
-app.use('/', {
-    signIn,
-    welcome,
-    refresh
-})
+app.get('/', (req, res) => res.send('Hello World!'))
 
 server.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`)
