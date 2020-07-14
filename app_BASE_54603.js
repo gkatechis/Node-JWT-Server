@@ -9,7 +9,16 @@ const PORT = 80;
 const {signIn, welcome, refresh} = require('./handlers');
 
 const app = express();
+
+const server = http.createServer((req,res) => {
+    res.statusCode = 200;
+    console.log(req.body);
+    res.end();
+})
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.raw());
+app.use(multer());
 app.use(cookieParser());
 
 app.post('/signin', signIn);
@@ -17,6 +26,6 @@ app.get('/welcome', welcome);
 app.post('/refresh', refresh);
 app.get('/', (req, res) => res.send('Hello World!'))
 
-http.createServer(app).listen(PORT), () => {
-    console.log(`Express server listening on port ${PORT}`);
-};
+server.listen(PORT, () => {
+    console.log(`Server running at port ${PORT}`)
+});
