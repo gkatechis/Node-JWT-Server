@@ -12,7 +12,7 @@ const users = {
 const signIn = (req,res) => {
     // Get creds from JSON
     const {username, password} = req.body;
-    console.log(req.body)
+    console.log("Is there a ", req.body)
     if (!username || !password || users[username] !== password) {
         //401 if user/pass aren't present or if the password is wrong
         return res.status(401).end();
