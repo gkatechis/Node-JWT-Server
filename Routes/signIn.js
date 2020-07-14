@@ -1,5 +1,7 @@
 'use strict'
 
+// Sign-in Router
+
 const jwt = require('jsonwebtoken');
 const jwtKey = 'E871C21F-F765-40F3-A0CE-ECF366B7B375|BD71A8D1-40F0-49CC-AA21-B6B956DF48B7';
 const jwtExpirySeconds = 300;
@@ -14,6 +16,9 @@ const users = {
 router.post('/', (req, res) => {
     // Get creds from JSON
     const {username,password} = req.body;
+
+    if (req.method = POST) {
+
     if (!username || !password || users[username] !== password) {
         return res.status(401).end();
     };
@@ -30,6 +35,9 @@ router.post('/', (req, res) => {
         maxAge: jwtExpirySeconds * 1000
     });
     res.end();
+ } else {
+     res.send('Unsupported method');
+ }
 });
 
 module.exports = router;
