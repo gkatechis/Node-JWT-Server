@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     res.cookie('token', token, {
         maxAge: jwtExpirySeconds * 1000
     });
-    res.send('Username:' + username, + '\nToken: ' + token);
+    res.send(`Username: ${username}  token: ${token}`);
 
 });
  
