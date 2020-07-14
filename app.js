@@ -18,15 +18,15 @@ const signIn = require('./Routes/signIn')
 
 const app = express();
 
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.raw());
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/signin', signIn);
+app.use('/signin', signIn);
 // app.get('/welcome', welcome);
 // app.post('/refresh', refresh);
 app.get('/', (req, res) => {
