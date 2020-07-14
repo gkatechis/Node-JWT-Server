@@ -11,7 +11,7 @@ const users = {
     user2: 'password2',
 };
 
-router.get('/signin', (req, res) => {
+router.post('/signin', (req, res) => {
     // Get creds from JSON
     const {username,password} = req.body;
     if (!username || !password || users[username] !== password) {
