@@ -16,8 +16,8 @@ const users = {
 router.post('/', (req, res) => {
     // Get creds from JSON
     const {username,password} = req.body;
-    console.log(req)
-    // if (req.method === post) {
+
+    if (req.method === 'POST') {
 
     if (!username || !password || users[username] !== password) {
         return res.status(401).end();
@@ -35,9 +35,9 @@ router.post('/', (req, res) => {
         maxAge: jwtExpirySeconds * 1000
     });
     res.end();
-//  } else {
-//      res.send('Unsupported method');
-//  }
+ } else {
+     res.send('Unsupported method');
+ }
 });
 
 module.exports = router;
