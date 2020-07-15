@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 
 });
 
-router.get('/refresh', (req, res) => {
+router.get('/', (req, res) => {
     // Get token from request's cookies
     const token = req.cookies.token
 
