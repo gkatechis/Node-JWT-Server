@@ -15,9 +15,9 @@ const fs = require('fs');
 
 const PORT = 443;
 
-const key = fs.readFileSync(path.resolve(__dirname, '../etc/letsencrypt/live/zendeskdevsupport.com/privkey.pem'));
+const key = fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/zendeskdevsupport.com/privkey.pem'));
 
-const cert = fs.readFileSync(path.resolve(__dirname, '../etc/letsencrypt/live/zendeskdevsupport.com/fullchain.pem'));
+const cert = fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/zendeskdevsupport.com/fullchain.pem'));
 
 
 const signIn = require('./Routes/signIn')
