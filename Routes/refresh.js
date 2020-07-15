@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     var payload
     try {
         payload = jwt.verify(token, jwtKey);
-        console.log(payload);
+        console.log("JWT verify is", payload);
     } catch (e) {
         if (e instanceof jwt.JsonWebTokenError) {
             return res.status(401).end();
