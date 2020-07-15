@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 router.get('/', (req, res) => {
     // Get token from request's cookies
     const token = req.cookies.token
-    console.log(req);
 
     // No cookie? 401 for you.
     if (!token) {
@@ -22,6 +21,7 @@ router.get('/', (req, res) => {
         if (e instanceof jwt.JsonWebTokenError) {
             return res.status(401).end();
         }
+        console.log("E is", e);
         return res.status(400).end();
     };
 
