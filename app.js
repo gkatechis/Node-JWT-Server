@@ -14,8 +14,7 @@ const path = require('path');
 
 const PORT = 80;
 
-const signIn = require('./Routes/signIn')
-// const refresh = require('./Routes/refresh')
+const {signIn, refresh} = require('./Routes/signIn')
 
 const app = express();
 
