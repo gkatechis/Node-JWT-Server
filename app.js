@@ -15,7 +15,7 @@ const path = require('path');
 const PORT = 80;
 
 const signIn = require('./Routes/signIn')
-const refresh = require('./Routes/refresh')
+// const refresh = require('./Routes/refresh')
 
 const app = express();
 
@@ -25,8 +25,8 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/signin', signIn);
-app.use('/refresh', refresh);
+app.use('/signin', {signIn, refresh});
+// app.use('/refresh', refresh);
 
 // // catch 404 and forward to error handler
 // app.use(function (req, res, next) {

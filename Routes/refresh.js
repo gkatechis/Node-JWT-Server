@@ -15,19 +15,12 @@ router.get('/', (req, res) => {
 
     var payload
     try {
-        const token = jwt.sign({
-            username
-        }, jwtKey, {
-            algorithm: 'HS256',
-            expiresIn: jwtExpirySeconds,
-        })
         payload = jwt.verify(token, jwtKey);
         console.log("JWT verify is", payload);
     } catch (e) {
         if (e instanceof jwt.JsonWebTokenError) {
             return res.status(401).end();
         }
-        console.log("E is", e);
         return res.status(400).end();
     };
 
