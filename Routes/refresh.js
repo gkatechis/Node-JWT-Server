@@ -15,6 +15,12 @@ router.get('/', (req, res) => {
 
     var payload
     try {
+        const token = jwt.sign({
+            username
+        }, jwtKey, {
+            algorithm: 'HS256',
+            expiresIn: jwtExpirySeconds,
+        })
         payload = jwt.verify(token, jwtKey);
         console.log("JWT verify is", payload);
     } catch (e) {
