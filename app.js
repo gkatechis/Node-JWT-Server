@@ -16,11 +16,6 @@ const https = require('https');
 
 const PORT = 443;
 
-const key = fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/zendeskdevsupport.com/privkey.pem'));
-
-const cert = fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/zendeskdevsupport.com/fullchain.pem'));
-
-
 const signIn = require('./Routes/signIn')
 const refresh = require('./Routes/signIn')
 
@@ -57,6 +52,5 @@ app.use('/refresh', refresh);
 
 https.createServer({
     key: key,
-    cert: cert,
-    ca: ca
+    cert: cert
 }, app).listen(port);
